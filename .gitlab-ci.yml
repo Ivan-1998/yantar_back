@@ -1,17 +1,18 @@
 image: node:latest
 
-
 stages:
   - deploy
 
 main-build:
   stage: deploy
+
   before_script:
-    - /var/www/www-root/data/www/api-new.yantar.in/
-    - git pull
+    - cd /var/www/www-root/data/www/api-new.yantar.in/
+
   script:
-    - git pull origin master
-    - pm2 delete "npm run serve"
+    - pm2 stop "npm run serve"
+    - git pull https://tigfamon:vanek7557@gitlab.com/tigfamon/yantar_back.git master
     - pm2 start "npm run serve"
+
   only: 
     - master
