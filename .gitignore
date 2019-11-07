@@ -1,0 +1,4 @@
+node_modules/
+_data/
+config/
+.DS_Store
