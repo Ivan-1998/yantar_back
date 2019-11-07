@@ -7,11 +7,12 @@ main-build:
   stage: deploy
 
   before_script:
+    - ls
     - cd ../var/www/www-root/data/www/api-new.yantar.in/
 
   script:
     - pm2 stop "npm run serve"
-    - git pull https://tigfamon:vanek7557@gitlab.com/tigfamon/yantar_back.git master
+    - git pull origin master
     - pm2 start "npm run serve"
 
   only: 
