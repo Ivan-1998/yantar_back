@@ -6,7 +6,7 @@ stages:
 main-build:
   stage: deploy
   before_script:
-    - cd ../../
+    - /var/www/www-root/data/www/api-new.yantar.in/
     - git pull
   script:
     - git pull origin master
