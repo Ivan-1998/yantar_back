@@ -5,11 +5,9 @@ stages:
 
 main-build:
   stage: deploy
-
-  before_script:
-    - cd ../../../../var/www/www-root/data/www/api-new.yantar.in/
-
+  
   script:
+    - cd /var/www/www-root/data/www/api-new.yantar.in/
     - pm2 stop "npm run serve"
     - git pull origin master
     - pm2 start "npm run serve"
