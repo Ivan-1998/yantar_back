@@ -7,7 +7,7 @@ main-build:
   stage: deploy
 
   before_script:
-    - cd /var/www/www-root/data/www/api-new.yantar.in/
+    - cd ../var/www/www-root/data/www/api-new.yantar.in/
 
   script:
     - pm2 stop "npm run serve"
