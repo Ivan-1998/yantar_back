@@ -19,6 +19,7 @@ exports.getProducts = asyncHandler(async (req, res, next) => {
  */
 exports.getProduct = asyncHandler(async (req, res, next) => {
   const product = await Products.findById(req.params.id);
+  
   if (!product) {
     return next(new ErrorResponse(`Product no found with id of ${req.params.id}`, 404));
   }
