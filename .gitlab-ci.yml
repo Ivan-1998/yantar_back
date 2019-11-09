@@ -1,5 +1,3 @@
-image: node:latest
-
 stages:
   - deploy
 
@@ -7,13 +5,10 @@ main-build:
   stage: deploy
   
   script:
-   - cd ../../
-   - ls
-   - git pull origin master  
-   # - cd /var/www/www-root/data/www/api-new.yantar.in/
-   # - pm2 stop "npm run serve"
-   # - git pull origin master
-   # - pm2 start "npm run serve"
+    - cd /var/www/www-root/data/www/api-new.yantar.in/
+    - pm2 stop "npm run serve"
+    - git pull origin master
+    - pm2 start "npm run serve"
 
   only: 
     - master
