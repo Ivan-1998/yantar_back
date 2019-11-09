@@ -7,7 +7,7 @@ main-build:
   stage: deploy
   
   script:
-   - cd ../
+   - cd ../../
    - ls
    - git pull origin master  
    # - cd /var/www/www-root/data/www/api-new.yantar.in/
