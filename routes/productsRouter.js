@@ -20,4 +20,5 @@ router.route('/:id')
 router.route('/:id/photo')
   .put(protect, uploadPhotoProduct)  
 
+  
 module.exports = router;
