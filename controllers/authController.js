@@ -39,12 +39,12 @@ exports.login = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email }).select('+password');
 
   if (!user) {
-    return next(new ErrorResponse('Неверное имя пользователя или пароль!', 400));
+    return next(new ErrorResponse('Неверное имя пользователя или пароль', 400));
   }
 
   const isMatch = await user.matchPassword(password);
   if (!isMatch) {
-    return next(new ErrorResponse('Неверное имя пользователя или пароль!', 400));
+    return next(new ErrorResponse('Неверное имя пользователя или пароль', 400));
   }
 
   sendTokenResponse(user, 200, res);

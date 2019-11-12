@@ -1,14 +1,18 @@
 stages:
-  - deploy
+ - deploy
 
-main-build:
+app deploy:
+  image: alpine:latest
   stage: deploy
-  
   script:
-    - cd /var/www/www-root/data/www/api-new.yantar.in/
-    - pm2 stop "npm run serve"
-    - git pull origin master
-    - pm2 start "npm run serve"
-
-  only: 
-    - master
+    - apk add --no-cache openssh sshpass
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - sshpass -p $HOST_PASSWORD ssh $HOST_USER@yantar.in "chmod +x /root/gitlab-deploy/back_app.sh && sudo /root/gitlab-deploy/back_app.sh"
+  only:
+    changes:
+      - admin-app/**/*
+    refs:
+      - master
