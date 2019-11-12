@@ -43,8 +43,7 @@ const advancedResults = (model) => async (req, res, next) => {
   }
 
   res.advancedResults = {
-    success: true,
-    data: results,
+    items: results,
     pagination
   };
 
