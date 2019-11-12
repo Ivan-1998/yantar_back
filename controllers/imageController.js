@@ -30,7 +30,7 @@ exports.uploadImage = asyncHandler(async (req, res, next) => {
     if (err) {
       return next(new ErrorResponse('Problem with file upload', 500));
     }
-    res.status(200).json({ url: file.name });
+    res.status(200).json({ name: file.name });
   });
 });
 /**
