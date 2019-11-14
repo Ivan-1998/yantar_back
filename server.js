@@ -17,6 +17,7 @@ connectDB();
 
 // Route files
 const products = require('./routes/productsRouter');
+const news = require('./routes/newsRouter');
 const auth = require('./routes/authRouter');
 const images = require('./routes/imageRouter');
 
@@ -35,6 +36,7 @@ app.use(cors());
 
 // Mount routers
 app.use('/api/v1/products', products);
+app.use('/api/v1/news', news)
 app.use('/api/v1/auth', auth)
 app.use('/api/v1/images', images);
 app.use(errorHandler);

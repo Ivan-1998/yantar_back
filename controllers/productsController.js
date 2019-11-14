@@ -21,7 +21,7 @@ exports.getProduct = asyncHandler(async (req, res, next) => {
   const product = await Products.findById(req.params.id);
   
   if (!product) {
-    return next(new ErrorResponse(`Product no found with id of ${req.params.id}`, 404));
+    return next(new ErrorResponse(`Product not found with id of ${req.params.id}`, 404));
   }
 
   res.status(200).json(product);
@@ -32,8 +32,8 @@ exports.getProduct = asyncHandler(async (req, res, next) => {
  * @access   Private
  */
 exports.createProducts = asyncHandler(async (req, res, next) => {
-  const products = await Products.create(req.body);
-  res.status(201).json({ success: true, products });
+  const product = await Products.create(req.body);
+  res.status(201).json(product);
 });
 /**
  * @desc     Обновление товара
@@ -51,7 +51,7 @@ exports.updateProduct = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Product no found with id of ${req.params.id}`, 404));
   }
 
-  res.status(200).json({ success: true, product });
+  res.status(200).json(product);
 });
 /**
  * @desc     Удаление товара
@@ -65,7 +65,7 @@ exports.removeProduct = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Product no found with id of ${req.params.id}`, 404));
   }
 
-  res.status(200).json({ success: true, msg: 'Товар удален' });
+  res.status(200).json({ msg: 'Товар удален' });
 });
 /**
  * @desc     Обновление фотографии у товара

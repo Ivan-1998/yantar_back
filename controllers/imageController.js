@@ -33,23 +33,3 @@ exports.uploadImage = asyncHandler(async (req, res, next) => {
     res.status(200).json({ name: file.name });
   });
 });
-/**
- * @desc Удаление изображения
- * @route DELETE /api/v1/images
- * @access Private
- */
-exports.removeImage = asyncHandler(async (req, res, next) => {
-  const name = req.params.name;
-  if (!name) {
-    return next('name is required field', 400);
-  }
-
-  const path = `public/uploads/${name}`;
-  fs.unlinkSync(path, err => {
-    if (err) {
-      return next(err, 400);
-    }
-  });
-
-  res.status(200).json({ msg: 'Изображение удалено!' });
-});
