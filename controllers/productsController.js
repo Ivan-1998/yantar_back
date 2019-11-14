@@ -24,7 +24,7 @@ exports.getProduct = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Product no found with id of ${req.params.id}`, 404));
   }
 
-  res.status(200).json({ success: true, product });
+  res.status(200).json(product);
 });
 /**
  * @desc     Добавление товаров
