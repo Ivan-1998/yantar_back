@@ -54,7 +54,7 @@ exports.uploadNewsById = asyncHandler(async (req, res, next) => {
 });
 /**
  * @desc Удаление новости
- * @route PUT /api/v1/news/:id
+ * @route DELETE /api/v1/news/:id
  * @access Private
  * @param {Number} id - id новости
  */

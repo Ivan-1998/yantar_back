@@ -2,7 +2,7 @@ const express = require('express');
 const { 
         getProducts, createProducts, 
         getProduct, updateProduct,
-        removeProduct, uploadPhotoProduct
+        removeProduct
       } = require('../controllers/productsController'); 
 
 const Products = require('../models/ProductsModel');
@@ -17,8 +17,5 @@ router.route('/:id')
   .get(getProduct)
   .put(protect, updateProduct)
   .delete(protect, removeProduct);
-router.route('/:id/photo')
-  .put(protect, uploadPhotoProduct)  
 
-  
 module.exports = router;
