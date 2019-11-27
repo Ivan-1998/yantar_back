@@ -18,6 +18,7 @@ exports.uploadImage = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Max size of image - ${process.env.MAX_FILE_UPLOAD}`, 400));
   }
 
+  
   const pathParse = path.parse(file.name);
   file.name = `image_${pathParse.name}${pathParse.ext}`;
   const url = `${process.env.FILE_UPLOAD_PATH}/${file.name}`;
