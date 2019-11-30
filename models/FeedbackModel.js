@@ -11,7 +11,11 @@ const FeedbackSchema = new mongoose.Schema({
     ]
   },
   phone: String,
-  message: String
+  message: String,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = mongoose.model('Feedback', FeedbackSchema);
