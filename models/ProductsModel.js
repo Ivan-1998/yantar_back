@@ -28,7 +28,7 @@ const ProductsSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    // required: [true, 'Please a select photo of good'],
+    required: [true, 'Please a select photo of good'],
   },
   slug: String
 });
