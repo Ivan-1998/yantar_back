@@ -10,7 +10,7 @@ const User = require('../models/UserModel');
 exports.register = asyncHandler(async (req, res, next) => {
   const { email, password, role } = req.body;
 
-  const accessAdminEmails = ['tigfamon@gmail.com'];
+  const accessAdminEmails = ['tigfamon@gmail.com', 'fatima@yantar.in'];
   if (!accessAdminEmails.includes(email) && role === 'admin') {
     res.status(405).send();
     return next();
