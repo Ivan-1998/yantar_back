@@ -4,7 +4,7 @@ const NewsSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, 'Title is required field'],
-    maxlength: [50, 'Title can no be more then 50 symbols']
+    maxlength: [150, 'Title can not be more then 50 symbols']
   },
   content: {
     type: String,
