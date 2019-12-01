@@ -20,12 +20,12 @@ exports.uploadImage = asyncHandler(async (req, res, next) => {
 
   
   const pathParse = path.parse(file.name);
-  file.name = `image_${pathParse.name}${pathParse.ext}`;
-  const url = `${process.env.FILE_UPLOAD_PATH}/${file.name}`;
+  // add hash
+  const hash = `${(new Date()).valueOf().toString()}-${(Math.floor(Math.random() * 100)).toString()}`;
 
-  if (fs.existsSync(url)) {
-    return next(new ErrorResponse('Файл с таким именем уже существует', 400));
-  }
+
+  file.name = `image_${pathParse.name + hash + pathParse.ext}`;
+  const url = `${process.env.FILE_UPLOAD_PATH}/${file.name}`;
 
   file.mv(url, async err => {
     if (err) {
