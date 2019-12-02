@@ -65,5 +65,5 @@ exports.removeRecipe = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Recipe not found with id of ${req.params.id}`));
   }
 
-  res.status(200).json({ msg: 'Рецепт удален!' })
+  res.status(200).json({ msg: 'Рецепт удален' })
 }); 

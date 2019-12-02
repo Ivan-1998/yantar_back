@@ -4,7 +4,7 @@ const RecipesSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, 'Title is required field'],
-    maxlength: [150, 'Title can not be more then 50 symbols']
+    maxlength: [150, 'Title can not be more then 150 symbols']
   },
   content: {
     type: String,
@@ -20,4 +20,4 @@ const RecipesSchema = new mongoose.Schema({
   slug: String
 });
 
-module.exports = mongoose.model('Reipes', RecipesSchema);
+module.exports = mongoose.model('Recipes', RecipesSchema);

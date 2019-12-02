@@ -22,6 +22,7 @@ const recipes = require('./routes/recipesRouter');
 const auth = require('./routes/authRouter');
 const images = require('./routes/imageRouter');
 const feedback = require('./routes/feedbackRouter');
+const reviews = require('./routes/reviewsRouter');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/api/v1/recipes', recipes);
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/images', images);
 app.use('/api/v1/feedback', feedback);
+app.use('/api/v1/reviews', reviews);
 
 app.use(errorHandler);
 
