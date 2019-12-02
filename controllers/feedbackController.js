@@ -49,7 +49,7 @@ exports.feedback = asyncHandler(async (req, res, next) => {
     const htmlToSend = template(replacements);
     const mailOptions = {
       from: 'sibtiger.nsk@gmail.com',
-      to: 'tigfamon@gmail.com',
+      to: 'info@yantar.kz',
       subject: 'Новая заявка с сайта yantar.in',
       html: htmlToSend
     };
