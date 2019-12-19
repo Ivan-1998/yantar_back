@@ -10,6 +10,6 @@ app deploy:
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - sshpass -p $HOST_PASSWORD ssh $HOST_USER@yantar.in "chmod +x /root/gitlab-deploy/back_app.sh && sudo /root/gitlab-deploy/back_app.sh"
+    - sshpass -p $HOST_PASSWORD ssh $HOST_USER@194.67.105.63 "chmod +x /root/gitlab-deploy/back_app.sh && sh /root/gitlab-deploy/back_app.sh"
   only:
     - master

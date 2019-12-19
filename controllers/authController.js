@@ -12,8 +12,7 @@ exports.register = asyncHandler(async (req, res, next) => {
 
   const accessAdminEmails = ['tigfamon@gmail.com', 'fatima@yantar.in'];
   if (!accessAdminEmails.includes(email) && role === 'admin') {
-    res.status(405).send();
-    return next();
+    return next(new ErrorResponse('Email is not valid', 405));
   }
 
   const user = await User.create({
